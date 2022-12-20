@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
     <title>Scheduler | Home</title>
 </head>
 <body>
-    <center>
-        <h1>Home</h1>
-        <a href="./lecturer_dashboard.html">Login as lecturer</a><a href="./student_dashboard.html" style="margin-left: 2em;">Login as Student</a>
-    </center>
+    <div class="background"></div>
+    <div class="container flex justify-between items-center forms">
+        <div class="login-form">
+            <h3>Student login</h3>
+            <form action="">
+                <input type="text" placeholder="Matric Number"><input type="password" placeholder="Password">
+            </form>
+            <p class="right"><a href="./student_signup.html">Signup</a>&nbsp; instead</p>
+        </div>
+        <div class="login-form">
+            <h3>Staff login</h3>
+            <form action="">
+                <input type="text" placeholder="Staff No"><input type="password" placeholder="Password">
+            </form>
+            <p class="right"><a href="./lecturer_signup.html">Signup</a>&nbsp; instead</p>
+        </div>
+    </div>
 </body>
 </html>
