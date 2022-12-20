@@ -13,18 +13,44 @@
     <div class="container flex justify-between items-center forms">
         <div class="login-form">
             <h3>Student login</h3>
-            <form action="">
-                <input type="text" placeholder="Matric Number"><input type="password" placeholder="Password">
+            <form action="" onsubmit="event.preventDefault(); studentLogin();">
+                <input type="text" placeholder="Matric Number" name="matric">
+                <p class="error hide" id="matricError">Enter a valid Matric Number</p>
+                <input type="password" placeholder="Password">
+                <button type="submit" class="btn primary">Login</button>
             </form>
             <p class="right"><a href="./student_signup.html">Signup</a>&nbsp; instead</p>
         </div>
         <div class="login-form">
             <h3>Staff login</h3>
-            <form action="">
-                <input type="text" placeholder="Staff No"><input type="password" placeholder="Password">
+            <form action="" onsubmit="event.preventDefault(); staffLogin();">
+                <input type="text" placeholder="Staff No" name="staffNumber">
+                <p class="error hide" id="staffNumberError">Enter a valid Staff Number</p>
+                <input type="password" placeholder="Password">
+                <button type="submit" class="btn secondary" >Login</button>
             </form>
             <p class="right"><a href="./lecturer_signup.html">Signup</a>&nbsp; instead</p>
         </div>
     </div>
+    <script>
+        function studentLogin() {
+            var matric = document.getElementsByName("matric")[0];
+            if(!matric.value || matric.length < 6) {
+                document.getElementById("matricError").classList.remove('hide')
+                return false;
+            }
+            location.replace("/student_dashboard.html");
+            return true
+        }
+        function staffLogin() {
+            var staffNumber = document.getElementsByName("staffNumber")[0];
+            if(!staffNumber.value || staffNumber.length < 8) {
+                document.getElementById("staffNumberError").classList.remove('hide')
+                return false;
+            }
+            location.replace("/lecturer_dashboard.html");
+            return true
+        }
+    </script>
 </body>
 </html>

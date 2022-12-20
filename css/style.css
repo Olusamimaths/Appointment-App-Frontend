@@ -2,6 +2,7 @@
     --primary: orange;
     --secondary: #1e90ff;
     --white: #ffffff;
+    --red: red;
     --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -64,4 +65,33 @@ a {
 .mx-auto {
     margin-left: auto;
     margin-right: auto;
+}
+.btn {
+    outline: none;
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s;
+}
+.btn:hover {
+    transform: scale(0.9);
+    border-radius: 5px;
+}
+.btn.primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+.btn.secondary {
+    border: 1px solid var(--secondary);
+    background-color: var(--secondary);
+    color: var(--white);
+}
+.error {
+    color: var(--red);
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-size: 0.9rem;
+}
+.hide {
+    display: none;
 }

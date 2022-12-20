@@ -7,7 +7,7 @@
     background-color: rgb(255, 255, 255);
     min-height: 300px;
     width: 48%;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     padding: 2rem;
 }
 input {
@@ -15,7 +15,7 @@ input {
     width: 100%;
     padding: 1em;
     margin-bottom: 0.5rem;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     border: none;
     border-bottom: solid 1px var(--primary);
     border-top: solid 1px rgb(32, 34, 34);

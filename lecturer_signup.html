@@ -13,15 +13,66 @@
     <div class="container flex justify-between items-center h-full">
         <div class="login-form mx-auto">
             <h3>Lecturer signup</h3>
-            <form action="">
-                <input type="text" placeholder="First Name">
-                <input type="text" placeholder="Last Name">
-                <input type="text" placeholder="Staff Number">
-                <input type="password" placeholder="Password">
-                <input type="password" placeholder="Confirm password">
+            <form action="" onsubmit="event.preventDefault(); studentSignup();">
+                <input type="text" placeholder="First Name" id="firstName">
+                <p class="error hide" id="firstNameError">First Name is required</p>
+                <input type="text" placeholder="Last Name" id="lastName">
+                <p class="error hide" id="lastNameError">Last Name is required</p>
+                <input type="text" placeholder="staffNumber Number" id="staffNumber">
+                <p class="error hide" id="staffNumberError">Enter a valid Staff Number</p>
+                <input type="password" placeholder="Password" id="password">
+                <input type="password" placeholder="Confirm password" id="confirmPassword">
+                <p class="error hide" id="passwordError"></p>
+                <button type="submit" class="btn primary" >Signup</button>
             </form>
             <p class="right">Have an account?<a href="/">&nbsp; login</a>&nbsp; here</p>
         </div>
     </div>
+
+    <script>
+        function staffSignup() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var staffNumber = document.getElementById("staffNumber").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            if(!firstName) {
+                document.getElementById("firstNameError").classList.remove('hide')
+                return false;
+            } else {
+                document.getElementById("firstNameError").classList.add('hide')
+            }
+            if(!lastName) {
+                document.getElementById("lastNameError").classList.remove('hide')
+                return false;
+            } else {
+                document.getElementById("lastNameError").classList.add('hide')
+            }
+            if(!staffNumber || staffNumber.length < 6) {
+                document.getElementById("staffNumberError").classList.remove('hide')
+                return false;
+            } else {
+                document.getElementById("staffNumberError").classList.add('hide')
+            }
+            if(!password || password.length < 6) {
+                console.log("password error")
+                document.getElementById("passwordError").innerText = "Password must be 6 or more characters"
+                document.getElementById("passwordError").classList.remove("hide");
+                return false;
+            } else {
+                document.getElementById("passwordError").classList.add('hide')
+            }
+            if(password !== confirmPassword) {
+                document.getElementById("passwordError").innerText = "Password do not match"
+                document.getElementById("passwordError").classList.remove("hide");
+
+                return false;
+            } else {
+                document.getElementById("passwordError").classList.add('hide')
+            }
+            location.reload()
+            return true
+        }
+    </script>
 </body>
 </html>
