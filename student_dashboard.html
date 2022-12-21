@@ -1,16 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/student_dashboard.css">
     <title>Dashboard</title>
 </head>
+
 <body>
-    <a href="./index.html" style="float: right;">Logout</a>
-    <center>
-        <h1>Dashboard</h1>
-        <a href="./student_appointment_booking.html">Book an appointment</a>
-    </center>
+    <div class="container">
+        <a href="./index.html" style="float: right; margin-top: 1rem;">Logout</a>
+        <span>&nbsp;</span>
+    </div>
+    <div class="container appointments">
+        <div class="appointment">
+            <h1 class="text-center">Available Schedules</h1>
+            <div class="schedule_days flex">
+                <div class="schedule_day card monday hide">
+                    <h3 class="day">Monday</h3>
+                    <p class="start_time flex">
+                        <span class="time_start">Start Time</span>
+                        <span class="time_start_val" id="monday_start_time">0:00</span>
+                    </p>
+                    <p class="end_time flex">
+                        <span class="time_end">End Time</span>
+                        <span class="time_end_val" id="monday_end_time">0:00</span>
+                    </p>
+                    <div class="hide monday">
+                        <input type="text" class="duration" placeholder="Duration in minutes" id="monday_input">
+                        <button class="schedule_btn btn" onclick="reserveAppointment('monday_input', 'monday')">schedule</button>
+                    </div>
+                </div>
+                <div class="schedule_day card tuesday hide">
+                    <h3 class="day">Tuesday</h3>
+                    <p class="start_time flex">
+                        <span class="time_start">Start Time</span>
+                        <span class="time_start" id="tuesday_start_time">0:00</span>
+                    </p>
+                    <p class="end_time flex">
+                        <span class="time_end">End Time</span>
+                        <span class="time_end_val" id="tuesday_end_time">0:00</span>
+                    </p>
+                    <div class="hide tuesday">
+                        <input type="text" class="duration" placeholder="Duration in minutes" id="tuesday_input">
+                        <button class="schedule_btn btn" onclick="reserveAppointment('tuesday_input', 'tuesday')"">schedule</button>
+                    </div>
+                </div>
+                <div class="schedule_day card wednesday hide">
+                    <h3 class="day">Wednesday</h3>
+                    <p class="start_time flex">
+                        <span class="time_start">Start Time</span>
+                        <span class="time_start" id="wednesday_start_time">0:00</span>
+                    </p>
+                    <p class="end_time flex">
+                        <span class="time_end">End Time</span>
+                        <span class="time_end_val" id="wednesday_end_time">0:00</span>
+                    </p>
+                    <div action="" class="hide wednesday">
+                        <input type="text" class="duration" placeholder="Duration in minutes" id="wednesday_input">
+                        <button class="schedule_btn btn" onclick="reserveAppointment('wednesday_input', 'wednesday')">schedule</button>
+                    </div>
+                </div>
+                <div class="schedule_day card thursday hide">
+                    <h3 class="day">Thursday</h3>
+                    <p class="start_time flex">
+                        <span class="time_start">Start Time</span>
+                        <span class="time_start" id="thursday_start_time">0:00</span>
+                    </p>
+                    <p class="end_time flex">
+                        <span class="time_end">End Time</span>
+                        <span class="time_end_val" id="thursday_end_time">0:00</span>
+                    </p>
+                    <div action="" class="hide thursday">
+                        <input type="text" class="duration" placeholder="Duration in minutes" id="thursday_input">
+                        <button class="schedule_btn btn" onclick="reserveAppointment('thursday_input', 'thursday')">schedule</button>
+                    </div>
+                </div>
+                <div class="schedule_day card friday hide">
+                    <h3 class="day">Friday</h3>
+                    <p class="start_time flex">
+                        <span class="time_start">Start Time</span>
+                        <span class="time_start" id="friday_start_time">0:00</span>
+                    </p>
+                    <p class="end_time flex">
+                        <span class="time_end">End Time</span>
+                        <span class="time_end_val" id="friday_end_time">0:00</span>
+                    </p>
+                    <div class="hide friday">
+                        <input type="text" class="duration" placeholder="Duration in minutes" id="friday_input">
+                        <button class="schedule_btn btn" onclick="reserveAppointment('friday_input', 'friday')">schedule</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="appointment">
+            <h1 class="text-center">My Appointments</h1>
+            <div class="schedule_days flex" id="mySchedules">
+                
+        </div>
+    </div>
+
+    <script>
+        var schedule = [
+            {
+                day: "monday",
+                startTime: "1:00",
+                endTime: "4:00",
+            },
+            {
+                day: "wednesday",
+                startTime: "2:00",
+                endTime: "3:00",
+            },
+            {
+                day: "thursday",
+                startTime: "12:00",
+                endTime: "6:00",
+            },
+            {
+                day: "friday",
+                startTime: "8:00",
+                endTime: "12:00",
+            },
+        ]
+        schedule.forEach((item) => {
+            var s_time = document.getElementById(`${item.day}_start_time`);
+            var e_time = document.getElementById(`${item.day}_end_time`);
+            s_time.innerText = item.startTime;
+            e_time.innerText = item.endTime;
+            document.querySelector(`.${item.day}.card`).classList.remove("hide")
+        })
+
+        function reserveAppointment(inputId, day) {
+            const value = document.getElementById(inputId).value;
+            console.log(value, day);
+        }
+
+        var mySchedules = [
+            {
+                day: "wednesday",
+                startTime: "2:00",
+                endTime: "3:00",
+                date: "23-04-2022"
+            },
+            {
+                day: "thursday",
+                startTime: "12:00",
+                endTime: "6:00",
+                date: "21-01-2022"
+            },
+        ]
+        var myScheduleContainer = document.getElementById("mySchedules");
+        mySchedules.map((scheduleItem) => {
+            console.log("my schedules")
+            var node = document.createElement('div');
+            node.classList.add("schedule_day", "card")
+            var h3 = document.createElement("h3");
+            h3.classList.add("day")
+            h3.innerText = scheduleItem.day;
+            node.append(h3);
+
+            var small = document.createElement("small");
+            small.classList.add("secondary", "text-center")
+            small.innerText = scheduleItem.date;
+            small.style.display = "block";
+            small.style.marginTop = "-20px";
+            node.append(small);
+
+
+            var p1 = document.createElement("p");
+            p1.classList.add("start_time", "flex");
+            var p1_start = document.createElement("span")
+            p1_start.classList.add("time_start");
+            p1_start.innerText = "Start Time";
+            var p1_start_val = document.createElement("span")
+            p1_start_val.classList.add("time_start_val");
+            p1_start_val.innerText = scheduleItem.startTime;
+            p1.append(p1_start);
+            p1.append(p1_start_val);
+            node.append(p1);
+            
+            var p2 = document.createElement("p");
+            p2.classList.add("end_time", "flex");
+            var p2_end = document.createElement("span")
+            p2_end.classList.add("time_end");
+            p2_end.innerText = "End Time";
+            var p2_end_val = document.createElement("span")
+            p2_end_val.classList.add("time_end_val");
+            p2_end_val.innerText = scheduleItem.endTime;
+            p2.append(p2_end);
+            p2.append(p2_end_val);
+            node.append(p2);
+
+            myScheduleContainer.appendChild(node)
+        })
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,64 @@
+.appointments {
+}
+.appointment {
+    margin-top: 8rem;
+    padding-bottom: 4rem;
+}
+.schedule_days {
+    gap: 3rem;
+    margin-top: 4rem;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.schedule_day {
+    width: 300px;
+    height: 300px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    font-size: 1.5rem;
+}
+.day {
+    color: var(--primary);
+    text-align: center;
+    text-transform: capitalize;
+}
+.start_time {
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 1rem;
+}
+.time_start, .time_end {
+    display: inline-block;
+    margin-right: 4rem;
+    white-space: nowrap;
+    width: 100px;
+}
+.monday.card:hover div.monday {
+    display: block;
+}
+.tuesday.card:hover div.tuesday {
+    display: block;
+}
+.wednesday.card:hover div.wednesday {
+    display: block;
+}
+.thursday.card:hover div.thursday {
+    display: block;
+}
+.friday.card:hover div.friday {
+    display: block;
+}
+input.duration {
+    outline: none;
+    border: 1px solid var(--primary);
+    padding: 0.3rem 1rem;
+    max-width: 100px; 
+}
+.schedule_btn {
+    padding: 0.3rem 1rem;
+    margin-left: auto;
+    background-color: var(--secondary);
+    opacity: 0.5;
+    border: none;
+    color: var(--white);
+}

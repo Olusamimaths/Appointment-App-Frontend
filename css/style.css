@@ -17,6 +17,7 @@ body {
     margin: 0;
     height: 100vh;
     position: relative;
+    overflow-y: auto;
 }
 .background {
     background-image: url("../images/calendar.webp");
@@ -50,6 +51,9 @@ body {
 }
 .right {
     float: right;
+}
+.text-center {
+    text-align: center;
 }
 a {
     color: var(--primary);
@@ -94,4 +98,14 @@ a {
 }
 .hide {
     display: none;
+}
+.card:hover {
+    transition: all 0.2s;
+    transform: scale(1.05);
+}
+.primary {
+    color: var(--primary);
+}
+.secondary {
+    color: var(--secondary);
 }
