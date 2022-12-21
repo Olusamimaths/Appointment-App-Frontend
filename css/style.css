@@ -109,3 +109,12 @@ a {
 .secondary {
     color: var(--secondary);
 }
+.bg-primary {
+    background-color: var(--primary);
+}
+.bg-secondary {
+    background-color: var(--secondary);
+}
+.capitalize {
+    text-transform: capitalize;
+}

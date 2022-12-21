@@ -1,16 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lecturer_dashboard.css">
     <title>Dashboard</title>
 </head>
+
 <body>
-    <a href="./index.html" style="float: right;">Logout</a>
-    <center>
-        <h1>Dashboard</h1>
-        <a href="./lecturer_schedule_create.html">Create semester appointment schedule</a>
-    </center>
+    <div class="container">
+        <a href="./index.html" style="float: right; margin-top: 1rem;">Logout</a>
+        <span>&nbsp;</span>
+    </div>
+    <div class="container manage_schedule">
+        <h1 class="primary">Manage Schedules</h1>
+        <div class="flex justify-between schedule_days">
+            <div class="">
+                <div class="schedule_day card">
+                    <h3 class="title">Monday</h3>
+                    <p class="flex justify-between">
+                        <span class="start_time">Start Time</span>
+                        <span id="monday_start_time">0:00</span>
+                    </p>
+                    <p class="flex justify-between">
+                        <span class="end_time">End Time</span>
+                        <span id="monday_end_time">0:00</span>
+                    </p>
+                    <span class="edit right secondary" role="button" onclick="return showEditForm('monday')">edit</span>
+                </div>
+                <div class="schedule_editor hide" id="monday_editor">
+                    <label for="startTime">Start Time</label>
+                    <input type="text" name="startTime">
+                    <label for="startTime">End Time</label>
+                    <input type="text" name="endTime">
+                    <button type="submit" class="btn primary">Save</button>
+                </div>
+            </div>
+            <div>
+                <div class="schedule_day card">
+                    <h3 class="title">Tuesday</h3>
+                    <p class="flex justify-between">
+                        <span class="start_time">Start Time</span>
+                        <span id="monday_start_time">0:00</span>
+                    </p>
+                    <p class="flex justify-between">
+                        <span class="end_time">End Time</span>
+                        <span id="monday_end_time">0:00</span>
+                    </p>
+                    <span class="edit right secondary" role="button"
+                        onclick="return showEditForm('tuesday')">edit</span>
+                </div>
+                <div class="schedule_editor hide" id="tuesday_editor">
+                    <label for="startTime">Start Time</label>
+                    <input type="text" name="startTime">
+                    <label for="startTime">End Time</label>
+                    <input type="text" name="endTime">
+                    <button type="submit" class="btn primary">Save</button>
+                </div>
+            </div>
+            <div>
+                <div class="schedule_day card">
+                    <h3 class="title">Wednesday</h3>
+                    <p class="flex justify-between">
+                        <span class="start_time">Start Time</span>
+                        <span id="wednesday_start_time">0:00</span>
+                    </p>
+                    <p class="flex justify-between">
+                        <span class="end_time">End Time</span>
+                        <span id="wednesday_end_time">0:00</span>
+                    </p>
+                    <span class="edit right secondary" role="button"
+                        onclick="return showEditForm('wednesday')">edit</span>
+                </div>
+                <div class="schedule_editor hide" id="wednesday_editor">
+                    <label for="startTime">Start Time</label>
+                    <input type="text" name="startTime">
+                    <label for="startTime">End Time</label>
+                    <input type="text" name="endTime">
+                    <button type="submit" class="btn primary">Save</button>
+                </div>
+            </div>
+            <div>
+                <div class="schedule_day card">
+                    <h3 class="title">Thursday</h3>
+                    <p class="flex justify-between">
+                        <span class="start_time">Start Time</span>
+                        <span id="thursday_start_time">0:00</span>
+                    </p>
+                    <p class="flex justify-between">
+                        <span class="end_time">End Time</span>
+                        <span id="thursday_end_time">0:00</span>
+                    </p>
+                    <span class="edit right secondary" role="button"
+                        onclick="return showEditForm('thursday')">edit</span>
+                </div>
+                <div class="schedule_editor hide" id="thursday_editor">
+                    <label for="startTime">Start Time</label>
+                    <input type="text" name="startTime">
+                    <label for="startTime">End Time</label>
+                    <input type="text" name="endTime">
+                    <button type="submit" class="btn primary">Save</button>
+                </div>
+            </div>
+            <div>
+                <div class="schedule_day card">
+                    <h3 class="title">Friday</h3>
+                    <p class="flex justify-between">
+                        <span class="start_time">Start Time</span>
+                        <span id="friday_start_time">0:00</span>
+                    </p>
+                    <p class="flex justify-between">
+                        <span class="end_time">End Time</span>
+                        <span id="friday_end_time">0:00</span>
+                    </p>
+                    <span class="edit right secondary" role="button" onclick="return showEditForm('friday')">edit</span>
+                </div>
+                <div class="schedule_editor hide" id="friday_editor">
+                    <label for="startTime">Start Time</label>
+                    <input type="text" name="startTime">
+                    <label for="startTime">End Time</label>
+                    <input type="text" name="endTime">
+                    <button type="submit" class="btn primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pending_schedules">
+        <h1 class="primary">Pending Schedules</h1>
+        <div class="flex schedule_days" id="pending_schedules_container">
+            
+        </div>
+    </div>
+    <div class="modal hide" id="modal">
+        <div class="modal_overlay" onclick="return closeModal()"></div>
+        <textarea name="" id="" cols="30" rows="10">Enter message</textarea>
+        <div class="flex justify-between" style="margin-top: 0.5rem;">
+            <button class="primary btn">Accept</button>
+            <button class="secondary btn">Reject</button>
+        </div>
+    </div>
+    <script>
+        var pendingSchedules = [
+            {
+                student: {
+                    firstName: 'Lola',
+                    lastName: 'Bamigbe'
+                },
+                day: 'monday',
+                startTime: '3:00',
+                endTime: '4:00'
+            },
+            {
+                student: {
+                    firstName: 'Lola',
+                    lastName: 'Bamigbe'
+                },
+                day: 'tuesday',
+                startTime: '3:00',
+                endTime: '4:00'
+            }
+        ]
+        var pendingScheduleContainer = document.getElementById("pending_schedules_container")
+        pendingSchedules.map((pendingItem) => {
+            var divNode = document.createElement('div');
+            divNode.classList.add("schedule_day", "card");
+            divNode.role = "button";
+            divNode.onclick = handleSchedule;
+            var h3 = document.createElement('h3');
+            h3.classList.add("student", "capitalize");
+            h3.innerText = pendingItem.student.firstName;
+            divNode.append(h3);
+            var h4 = document.createElement('h4');
+            h4.classList.add("title", "capitalize");
+            h4.innerText = pendingItem.day;
+            divNode.append(h4);
+
+            var p1 = document.createElement("p");
+            p1.classList.add("justify-between", "flex");
+            var p1_start = document.createElement("span")
+            p1_start.classList.add("start_time");
+            p1_start.innerText = "Start Time";
+            var p1_start_val = document.createElement("span")
+            p1_start_val.classList.add("end_time");
+            p1_start_val.innerText = pendingItem.startTime;
+            p1.append(p1_start);
+            p1.append(p1_start_val);
+            divNode.append(p1);
+
+            var p2 = document.createElement("p");
+            p2.classList.add("justify-between", "flex");
+            var p2_start = document.createElement("span")
+            p2_start.classList.add("start_time");
+            p2_start.innerText = "End Time";
+            var p2_start_val = document.createElement("span")
+            p2_start_val.classList.add("end_time");
+            p2_start_val.innerText = pendingItem.endTime;
+            p2.append(p2_start);
+            p2.append(p2_start_val);
+            divNode.append(p2);
+            pendingScheduleContainer.append(divNode)
+        })
+        function showEditForm(day) {
+            var editForm = document.getElementById(`${day}_editor`);
+            editForm.classList.remove('hide');
+        }
+        function closeModal() {
+            document.getElementById('modal').classList.add('hide');
+        }
+        function handleSchedule() {
+            document.getElementById('modal').classList.remove('hide');
+        }
+    </script>
 </body>
+
 </html>

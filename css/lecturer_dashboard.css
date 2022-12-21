@@ -1,0 +1,69 @@
+.manage_schedule {
+    margin-top: 4rem;
+}
+.pending_schedules {
+    margin-top: 8rem;
+}
+.schedule_days {
+    padding-top: 2rem;
+    gap: 1rem;
+}
+.schedule_day {
+    width: 150px;
+    height: 180px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.schedule_day > h3 {
+    color: var(--secondary);
+}
+.schedule_day > p {
+    color: var(--primary);
+}
+.edit {
+    cursor: pointer;
+}
+.edit:hover {
+    color: var(--primary);
+}
+input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+.schedule_editor {
+    margin-top: 2rem;
+    width: 150px;
+}
+.student {
+    margin: 0;
+}
+.title {
+    margin: 0;
+}
+.modal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    /* background-color: rgb(119, 119, 173); */
+}
+.modal_overlay {
+    content: '';
+    background-color: black;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -50;
+}
+.hide {
+    display: none;
+}

@@ -33,26 +33,14 @@
     white-space: nowrap;
     width: 100px;
 }
-.monday.card:hover div.monday {
-    display: block;
-}
-.tuesday.card:hover div.tuesday {
-    display: block;
-}
-.wednesday.card:hover div.wednesday {
-    display: block;
-}
-.thursday.card:hover div.thursday {
-    display: block;
-}
-.friday.card:hover div.friday {
-    display: block;
-}
+
 input.duration {
     outline: none;
     border: 1px solid var(--primary);
     padding: 0.3rem 1rem;
     max-width: 100px; 
+    margin-right: auto;
+    display: inline-block;
 }
 .schedule_btn {
     padding: 0.3rem 1rem;
@@ -61,4 +49,6 @@ input.duration {
     opacity: 0.5;
     border: none;
     color: var(--white);
+    display: inline-block;
+    align-self: right;
 }
