@@ -131,7 +131,13 @@
     <div class="container pending_schedules">
         <h1 class="primary">Pending Schedules</h1>
         <div class="flex schedule_days" id="pending_schedules_container">
-            
+
+        </div>
+    </div>
+    <div class="container accepted_schedules">
+        <h1 class="primary">Accepted Schedules</h1>
+        <div class="flex schedule_days" id="accepted_schedules_container">
+
         </div>
     </div>
     <div class="modal hide" id="modal">
@@ -146,8 +152,8 @@
         var pendingSchedules = [
             {
                 student: {
-                    firstName: 'Lola',
-                    lastName: 'Bamigbe'
+                    firstName: 'Samuel',
+                    lastName: 'Olusola'
                 },
                 day: 'monday',
                 startTime: '3:00',
@@ -157,6 +163,15 @@
                 student: {
                     firstName: 'Lola',
                     lastName: 'Bamigbe'
+                },
+                day: 'tuesday',
+                startTime: '3:00',
+                endTime: '4:00'
+            },
+            {
+                student: {
+                    firstName: 'Simon',
+                    lastName: 'Babatunde'
                 },
                 day: 'tuesday',
                 startTime: '3:00',
@@ -202,6 +217,81 @@
             p2.append(p2_start_val);
             divNode.append(p2);
             pendingScheduleContainer.append(divNode)
+        })
+
+        var acceptedSchedules = [
+            {
+                student: {
+                    firstName: 'Samuel',
+                    lastName: 'Olusola'
+                },
+                day: 'monday',
+                startTime: '3:00',
+                endTime: '4:00',
+                message: "Make sure to come along with printed copies of your thesis"
+            },
+            {
+                student: {
+                    firstName: 'Lola',
+                    lastName: 'Bamigbe'
+                },
+                day: 'tuesday',
+                startTime: '3:00',
+                endTime: '4:00',
+                message: "There will be two other professors on your panel, brace up"
+            },
+            {
+                student: {
+                    firstName: 'Simon',
+                    lastName: 'Babatunde'
+                },
+                day: 'tuesday',
+                startTime: '3:00',
+                endTime: '4:00'
+            }
+        ]
+        var acceptedScheduleContainer = document.getElementById("accepted_schedules_container")
+        acceptedSchedules.map((acceptedItem) => {
+            var divNode = document.createElement('div');
+            divNode.classList.add("schedule_day", "card", "accepted");
+            var h3 = document.createElement('h3');
+            h3.classList.add("student", "capitalize");
+            h3.innerText = acceptedItem.student.firstName;
+            divNode.append(h3);
+            var h4 = document.createElement('h4');
+            h4.classList.add("title", "capitalize");
+            h4.innerText = acceptedItem.day;
+            divNode.append(h4);
+
+            var p1 = document.createElement("p");
+            p1.classList.add("justify-between", "flex");
+            var p1_start = document.createElement("span")
+            p1_start.classList.add("start_time");
+            p1_start.innerText = "Start Time";
+            var p1_start_val = document.createElement("span")
+            p1_start_val.classList.add("end_time");
+            p1_start_val.innerText = acceptedItem.startTime;
+            p1.append(p1_start);
+            p1.append(p1_start_val);
+            divNode.append(p1);
+
+            var p2 = document.createElement("p");
+            p2.classList.add("justify-between", "flex");
+            var p2_start = document.createElement("span")
+            p2_start.classList.add("start_time");
+            p2_start.innerText = "End Time";
+            var p2_start_val = document.createElement("span")
+            p2_start_val.classList.add("end_time");
+            p2_start_val.innerText = acceptedItem.endTime;
+            p2.append(p2_start);
+            p2.append(p2_start_val);
+            divNode.append(p2);
+
+            var p3 = document.createElement("p");
+            p3.classList.add("message", "secondary");
+            p3.innerText = acceptedItem.message || "";
+            divNode.append(p3);
+            acceptedScheduleContainer.append(divNode)
         })
         function showEditForm(day) {
             var editForm = document.getElementById(`${day}_editor`);

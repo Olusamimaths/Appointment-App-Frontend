@@ -1,8 +1,13 @@
+
 .manage_schedule {
     margin-top: 4rem;
 }
 .pending_schedules {
     margin-top: 8rem;
+}
+.accepted_schedules {
+    margin-top: 8rem;
+    padding-bottom: 16rem;
 }
 .schedule_days {
     padding-top: 2rem;
@@ -41,7 +46,7 @@ input {
     margin: 0;
 }
 .modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -51,13 +56,12 @@ input {
     align-items: center;
     justify-content: center;
     z-index: 100;
-    /* background-color: rgb(119, 119, 173); */
 }
 .modal_overlay {
     content: '';
     background-color: black;
-    opacity: 0.8;
-    position: absolute;
+    opacity: 0.6;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -66,4 +70,10 @@ input {
 }
 .hide {
     display: none;
+}
+.message {
+    color: var(--secondary) !important;
+}
+.card.accepted {
+    height: inherit;
 }

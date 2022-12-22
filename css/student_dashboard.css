@@ -52,3 +52,9 @@ input.duration {
     display: inline-block;
     align-self: right;
 }
+.card.accepted {
+    height: inherit;
+}
+.message {
+    color: var(--secondary);
+}
